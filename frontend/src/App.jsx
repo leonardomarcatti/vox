@@ -21,8 +21,7 @@ const App = () => {
 
 
   return <>
-         <h1>{state.message}</h1>   
-         <button type="button" onClick={handleClick}>Null</button>
+         <h1>{state.message}</h1>
   </>
 }
 
