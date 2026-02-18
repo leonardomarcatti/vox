@@ -76,7 +76,7 @@ Após iniciar:
 
 * Frontend → [http://ip:3000](http://ip:3000)
 * Backend API → [http://ip:3001](http://ip:3001)
-* MySQL → ip:3305
+* MySQL → http://ip:3305
 
 
 ## 🔌 Integração Frontend ↔ Backend
