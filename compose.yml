@@ -1,0 +1,61 @@
+services:
+
+  vox_db:
+    image: mysql:latest
+    container_name: vox_db
+    restart: always
+    ports:
+      - "3305:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: vox
+      MYSQL_USER: vox
+      MYSQL_PASSWORD: vox
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uapp_user", "-psecret"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    build:
+      context: ./backend
+    container_name: backend
+    ports:
+      - "3001:8000"
+    volumes:
+      - ./backend:/var/www
+    depends_on:
+      vox_db:
+        condition: service_healthy
+    environment:
+      DB_CONNECTION: mysql
+      DB_HOST: vox_db
+      DB_PORT: 3306
+      DB_DATABASE: vox
+      DB_USERNAME: vox
+      DB_PASSWORD: vox
+    command: >
+      sh -c "
+        php artisan migrate --force &&
+        php artisan serve --host=0.0.0.0 --port=8000
+      "
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+    command: pnpm run dev --host --port 3000
+
+volumes:
+  mysql_data:
