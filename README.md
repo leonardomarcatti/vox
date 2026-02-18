@@ -51,18 +51,18 @@ MySQL
 
 ## 📂 Estrutura do Projeto
 
-vox/
-├── frontend/   # Aplicação React
-├── backend/    # API Laravel
-├── database/   # Scripts de inicialização
-└── docker-compose.yml
+vox/<br />
+├── frontend/   # Aplicação React<br />
+├── backend/    # API Laravel<br />
+├── database/   # Scripts de inicialização<br />
+└── docker-compose.yml<br />
 
 
 ## ⚙️ Como Executar o Projeto
 
 ### 1️⃣ Clonar o repositório
 
-git clone https://github.com/leonardomarcatti/vox.git
+git clone https://github.com/leonardomarcatti/vox.git<br />
 cd vox
 
 
@@ -96,7 +96,7 @@ O Vite redireciona automaticamente para o container do Laravel.
 
 
 ## 👨‍💻 Autor
-Desenvolvido por **Leonardo Marcatti**.
+Desenvolvido por <a href='https://www.linkedin.com/in/leonardomarcattidasilvalms/' target='_blank'>Leonardo Marcatti</a>.
 
 
 ## 📄 Licença
