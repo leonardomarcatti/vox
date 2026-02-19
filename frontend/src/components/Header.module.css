@@ -15,7 +15,7 @@ span {
    height: 100%;
 }
 
-i {
+.header i {
    margin-left: 10px;
    color: tomato;
 }
