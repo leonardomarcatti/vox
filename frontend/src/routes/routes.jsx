@@ -5,11 +5,11 @@ import Logup from '../components/Logup'
 import Login from '../components/Login'
 
 const routes = createBrowserRouter([
-   {path: '/', element: <Layout />, children: [
+   {path: '/home', element: <Layout />, children: [
       {index: true, element: <Home/>}
    ]},
    {path: 'logup', element: <Logup />},
-   {path: 'login', element: <Login />}
+   {path: '/', element: <Login />}
 ])
 
 export default routes

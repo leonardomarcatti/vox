@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 const Logup = () => {
    return <div className="shadow-lg rounded-3 col-5 p-4 bg-body-tertiary">
       <h2 className='mb-3'>Cadastre-se</h2>
@@ -18,10 +20,13 @@ const Logup = () => {
             <label htmlFor="password_confirm" className="form-label">Repita Senha:</label>
             <input type="email" name="password_confirm" id="password_confirm" className="form-control" />
          </div>
-         <span className=''>
-            <button type="submit" className='btn btn-primary mx-2'>Cadastrar <i class="fa-solid fa-user-plus"></i></button>
-            <button type="reset" className='btn btn-warning mx-2'>Limpar <i class="fa-solid fa-x"></i></button>
-         </span>
+         <div className=''>
+            <span>
+               <button type="submit" className='btn btn-primary mx-2'>Cadastrar <i class="fa-solid fa-user-plus"></i></button>
+               <button type="reset" className='btn btn-warning mx-2'>Limpar <i class="fa-solid fa-x"></i></button>
+            </span>
+            <small>Já é cadastrado? Clique <Link to='/'>aqui</Link></small>
+         </div>
       </form>
    </div> 
 }
