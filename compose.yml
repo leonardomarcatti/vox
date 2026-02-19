@@ -1,7 +1,7 @@
 services:
 
   vox_db:
-    image: mysql:latest
+    image: mysql:9.6.0
     container_name: vox_db
     restart: always
     ports:
@@ -15,10 +15,12 @@ services:
       - mysql_data:/var/lib/mysql
       - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uapp_user", "-psecret"]
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uvox", "-pvox"]
       interval: 5s
       timeout: 5s
       retries: 10
+    networks:
+      - vox_network
 
   backend:
     build:
@@ -40,9 +42,13 @@ services:
       DB_PASSWORD: vox
     command: >
       sh -c "
+        ./wait-for-it.sh vox_db:3306 --
         php artisan migrate --force &&
+        php artisan db:seed &&
         php artisan serve --host=0.0.0.0 --port=8000
       "
+    networks:
+      - vox_network
 
   frontend:
     build:
@@ -56,6 +62,11 @@ services:
     depends_on:
       - backend
     command: pnpm run dev --host --port 3000
+    networks:
+      - vox_network
 
 volumes:
   mysql_data:
+
+networks:
+  vox_network:

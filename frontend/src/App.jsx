@@ -4,7 +4,7 @@ import './App.css'
 const App = () => {
    const [state, setState] = useState('')
    const getData = async () => {
-      const data = await fetch('/api/', {
+      const data = await fetch('/api', {
          method: 'get',
          headers: {
             'Content-Type': 'application/json'
