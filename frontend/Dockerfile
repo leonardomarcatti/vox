@@ -1,12 +1,14 @@
-FROM node:25
+FROM node:24
 
 WORKDIR /app
 
-# instala pnpm globalmente
-RUN npm install -g pnpm
+# ativa pnpm
+RUN corepack enable
+RUN corepack prepare pnpm@latest --activate
 
-# copia dependências primeiro (cache de build)
+# copia SOMENTE dependências primeiro (cache do docker)
 COPY package.json pnpm-lock.yaml ./
+
 
 RUN pnpm install
 

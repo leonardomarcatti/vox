@@ -1,0 +1,21 @@
+.header {
+   display: flex;
+   flex-flow: row nowrap;
+   justify-content: space-between;
+   align-items: center;
+   background-image: linear-gradient(to right, gray, silver);
+   padding: 0 1rem;
+}
+
+span {
+   display: flex;
+   flex-flow: row nowrap;
+   justify-content: center;
+   align-items: center;
+   height: 100%;
+}
+
+i {
+   margin-left: 10px;
+   color: tomato;
+}

@@ -1,28 +1,10 @@
-import { useState, useEffect } from 'react'
+import { RouterProvider } from 'react-router-dom'
+import routes from './routes/routes'
 import './App.css'
 
 const App = () => {
-   const [state, setState] = useState('')
-   const getData = async () => {
-      const data = await fetch('/api', {
-         method: 'get',
-         headers: {
-            'Content-Type': 'application/json'
-         }
-      })
-
-      const json = await data.json()
-      setState(json)
-   }
-
-   useEffect(() => {
-      getData()
-   }, [])
-
-
-  return <>
-         <h1>{state.message}</h1>
-  </>
+   
+   return <RouterProvider router={routes} />
 }
 
 export default App

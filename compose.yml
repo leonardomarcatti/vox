@@ -61,7 +61,7 @@ services:
       - /app/node_modules
     depends_on:
       - backend
-    command: pnpm run dev --host --port 3000
+    command: sh -c "CI=true pnpm install && pnpm run dev --host --port 3000"
     networks:
       - vox_network
 
