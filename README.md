@@ -84,8 +84,8 @@ Após iniciar:
 
 ## 🔌 Integração Frontend ↔ Backend
 
-O projeto utiliza proxy do Vite durante o desenvolvimento.
-No frontend, as requisições são feitas usando: fetch('/api/...')
+O projeto utiliza proxy do Vite durante o desenvolvimento.<br />
+No frontend, as requisições são feitas usando: fetch('/api/...')<br />
 O Vite redireciona automaticamente para o container do Laravel.
 
 ## 📋 Funcionalidades Planejadas
