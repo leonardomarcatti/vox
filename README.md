@@ -1,4 +1,4 @@
-# 📌 Vox — Trello‑like Task Manager
+# 📌 Vox — Trello
 
 Vox é uma aplicação web inspirada no **Trello**, criada com o objetivo de estudar arquitetura moderna baseada em containers e separação clara entre frontend, backend e banco de dados.
 O projeto simula um sistema de gerenciamento de tarefas em formato **Kanban**, permitindo organizar atividades em quadros, listas e cartões.
@@ -16,26 +16,27 @@ A aplicação é dividida em três containers independentes:
 
 ### Fluxo de comunicação
 
-Browser
-   ↓
-React (Vite Dev Server)
-   ↓ proxy interno
-Laravel API
-   ↓
-MySQL
+Browser<br/>
+   ↓<br/>
+React (Vite Dev Server)<br/>
+   ↓ proxy interno<br/>
+Laravel API<br/>
+   ↓<br/>
+MySQL<br/>
 
 ## 🛠️ Tecnologias Utilizadas
 
 ### Frontend
 
 * React
+* React Router
 * Vite
 * pnpm
 * Fetch API
 
 ### Backend
 
-* Laravel (API REST)
+* Laravel 12 (API REST)
 * PHP 8.4
 * Eloquent ORM
 
@@ -68,7 +69,7 @@ cd vox
 
 ### 2️⃣ Subir os containers
 docker compose up --build
-
+Da próxima vez que subuir a aplicação substitua --build por -d
 
 ## 🌐 Acessos
 
