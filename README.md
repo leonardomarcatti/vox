@@ -4,6 +4,18 @@ Vox é uma aplicação web inspirada no **Trello**, criada com o objetivo de est
 O projeto simula um sistema de gerenciamento de tarefas em formato **Kanban**, permitindo organizar atividades em quadros, listas e cartões.
 
 
+## 💻 Screenshots
+
+Login<br/>
+<img width="500" height="300" alt="{4A4B1442-2F82-4E4F-B4F8-ACF9313EB9C7}" src="https://github.com/user-attachments/assets/9f57e781-4526-4a0e-b19c-2a8b818e18ed" /><br/>
+Logup<br/>
+<img width="500" height="300" alt="{4A746814-8A62-4EFD-8DF1-CA245FF7304A}" src="https://github.com/user-attachments/assets/38919455-67d4-4d73-842c-acd3c5630be3" /><br/>
+Home<br/>
+<img width="500" height="300" alt="{AB34740E-3120-49C2-BB0D-48B3B36EBE10}" src="https://github.com/user-attachments/assets/8bb4af14-451b-4541-b5dc-7456bf4b48d0" /><br/>
+
+
+
+
 ## 🧱 Arquitetura
 
 A aplicação é dividida em três containers independentes:
