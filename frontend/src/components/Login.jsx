@@ -22,9 +22,7 @@ const login = () => {
                <button type="submit" className='btn btn-primary mx-2'>Login <i className="fa-solid fa-lock-open"></i></button>
                <button type="reset" className='btn btn-warning mx-2'>Limpar <i className="fa-solid fa-x"></i></button>
             </span>
-            <small>Não tem cadastro? Clique <Link to='/logup'>aqui</Link></small>
-            <Link to='/home'>Home</Link>
-            
+            <small>Não tem cadastro? Clique <Link to='/logup'>aqui</Link></small>         
          </div>
       </Form>
    </div>
