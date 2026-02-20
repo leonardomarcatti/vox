@@ -1,16 +1,11 @@
-import useHomeHook from '../hooks/useHomeHook'
-import { useEffect } from 'react'
+import {useLoaderData} from 'react-router-dom'
 
 const Home = () => {
-   const { getData, state } = useHomeHook()
-
-   useEffect(() => {
-      getData()
-   }, [getData])
+   const data = useLoaderData()
 
    return <>
       <h1>Home Page</h1>
-      <h2>{state.message}</h2>
+      <h2>{data.message}</h2>
    </>
 }
 
