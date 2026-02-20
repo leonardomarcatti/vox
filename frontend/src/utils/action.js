@@ -1,3 +1,5 @@
+import { redirect } from "react-router-dom";
+
 const loginAction = async ({ request }) => {
    const userData = await request.formData();
    const body = {
@@ -14,8 +16,13 @@ const loginAction = async ({ request }) => {
       body: JSON.stringify(body)
    })
 
-   const json = await response.json()
-   return json
+   if (response.status === 200) {
+      const json = await response.json()
+      sessionStorage.setItem('token', json.token)
+      return redirect('/home')
+   }
+
+   return null
 }
 
 

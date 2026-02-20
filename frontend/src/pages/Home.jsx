@@ -1,11 +1,15 @@
-import {useLoaderData} from 'react-router-dom'
+import StatusContainer from '../components/StatusContainer'
 
-const Home = () => {
-   const data = useLoaderData()
-
+const Home = () => {   
    return <>
       <h1>Home Page</h1>
-      <h2>{data.message}</h2>
+      <div className="container">
+         <div className="row">
+            <StatusContainer style='bg-danger-subtle' title='Todo'/>
+            <StatusContainer style='bg-warning-subtle' title='Doing'/>
+            <StatusContainer style='bg-success-subtle' title='Done'/>
+         </div>
+      </div>
    </>
 }
 

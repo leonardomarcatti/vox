@@ -2,7 +2,7 @@ import { Link, Form, useActionData } from "react-router-dom"
 
 const login = () => {
    const data = useActionData()
-   console.log(data);
+   const errors = data?.errors || {}
    
    return <div className="shadow-lg rounded-3 col-5 p-4 bg-body-tertiary">
       <h2 className='mb-3'>Login</h2>
@@ -10,10 +10,12 @@ const login = () => {
          <div className="mb-3 text-start">
             <label htmlFor="email" className="form-label">Email:</label>
             <input type="email" name="email" id="email" className="form-control" />
+            {errors.email && <small className="text-danger">{errors.email[0]}</small>}
          </div>
          <div className="mb-3  text-start">
             <label htmlFor="password" className="form-label">Senha:</label>
             <input type="password" name="password" id="password" className="form-control" />
+            {errors.password && <small className="text-danger">{errors.password[0]}</small>}
          </div>
          <div>
             <span>
