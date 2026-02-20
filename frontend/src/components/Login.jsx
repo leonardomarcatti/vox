@@ -1,6 +1,9 @@
-import { Link, Form } from "react-router-dom"
+import { Link, Form, useActionData } from "react-router-dom"
 
 const login = () => {
+   const data = useActionData()
+   console.log(data);
+   
    return <div className="shadow-lg rounded-3 col-5 p-4 bg-body-tertiary">
       <h2 className='mb-3'>Login</h2>
       <Form method="POST">

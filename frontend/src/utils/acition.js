@@ -1,5 +1,21 @@
-const loginAction = () => {
+const loginAction = async ({ request }) => {
+   const userData = await request.formData();
+   const body = {
+      email: userData.get('email'),
+      password: userData.get('password'),
+   }
 
+   const response = await fetch('/api/login', {
+      method: 'post',
+      headers: {
+         'Content-Type': 'application/json',
+         'Accept': 'application/json',
+      },
+      body: JSON.stringify(body)
+   })
+
+   const json = await response.json()
+   return json
 }
 
 
@@ -22,8 +38,6 @@ const logupAction = async ({request, params}) => {
    })
 
    const json = await response.json()
-   console.log(json);
-   
    return json
 
 }
