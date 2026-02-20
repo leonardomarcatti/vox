@@ -68,7 +68,7 @@ cd vox
 
 
 ### 2️⃣ Subir os containers
-docker compose up --build
+docker compose up --build<br />
 Da próxima vez que subuir a aplicação substitua --build por -d
 
 ## 🌐 Acessos
