@@ -19,7 +19,9 @@ A aplicação é dividida em três containers independentes:
 Browser<br/>
    ↓<br/>
 React (Vite Dev Server)<br/>
-   ↓ proxy interno<br/>
+   ↓ <br/>
+proxy interno<br/>
+   ↓<br/>
 Laravel API<br/>
    ↓<br/>
 MySQL<br/>
