@@ -9,7 +9,7 @@ const Home = () => {
       <h1>Home Page</h1>
       <div className="container">
          <div className="row">
-            <StatusContainer style='bg-danger-subtle' title='Todo' status='1' tasks={data?.tasks} />
+            <StatusContainer style='bg-danger-subtle' title='Todo' status='1' tasks={data?.tasks} newTask='true'/>
             <StatusContainer style='bg-warning-subtle' title='Doing' status='2' tasks={data?.tasks} />
             <StatusContainer style='bg-success-subtle' title='Done' status='3' tasks={data?.tasks} />
          </div>

@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      bootstrap-icons:
+        specifier: ^1.13.1
+        version: 1.13.1
       react:
         specifier: ^19.2.4
         version: 19.2.4
@@ -550,6 +553,9 @@ packages:
   baseline-browser-mapping@2.9.19:
     resolution: {integrity: sha512-ipDqC8FrAl/76p2SSWKSI+H9tFwm7vYqXQrItCuiVPt26Km0jS+NzSsBWAaBusvSbQcfJG+JitdMm+wZAgTYqg==}
     hasBin: true
+
+  bootstrap-icons@1.13.1:
+    resolution: {integrity: sha512-ijombt4v6bv5CLeXvRWKy7CuM3TRTuPEuGaGKvTV5cz65rQSY8RQ2JcHt6b90cBBAC7s8fsf2EkQDldzCoXUjw==}
 
   brace-expansion@5.0.2:
     resolution: {integrity: sha512-Pdk8c9poy+YhOgVWw1JNN22/HcivgKWwpxKq04M/jTmHyCZn12WPJebZxdjSa5TmBqISrUSgNYU3eRORljfCCw==}
@@ -1365,6 +1371,8 @@ snapshots:
   balanced-match@4.0.3: {}
 
   baseline-browser-mapping@2.9.19: {}
+
+  bootstrap-icons@1.13.1: {}
 
   brace-expansion@5.0.2:
     dependencies:

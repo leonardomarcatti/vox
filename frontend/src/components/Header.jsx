@@ -3,7 +3,7 @@ import { Link, useRouteLoaderData } from 'react-router-dom'
 const Header = () => {
    const userData = useRouteLoaderData('home')
    
-   return <header className={styles.header}>
+   return <header className={`border-bottom ${styles.header}`}>
       <h1>Vox Trello</h1>
       <span>
          <span>Bem vindo {userData.user.name}</span>

@@ -4,7 +4,7 @@ const checkAuthorization = async () => {
    const token = sessionStorage.getItem('token')
 
    if (!token) {
-      throw redirect("/login");
+      throw redirect("/");
    }
 
    const response = await fetch('/api/home', {
@@ -19,7 +19,7 @@ const checkAuthorization = async () => {
    
    
    if (response.status === 401) {
-      throw redirect("/login");
+      throw redirect("/");
    }
 
    return response.json()
@@ -27,7 +27,7 @@ const checkAuthorization = async () => {
 
 const logout = () => {
    sessionStorage.clear()
-   return redirect("/login");
+   return redirect("/");
 }
 
 

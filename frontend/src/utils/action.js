@@ -27,7 +27,7 @@ const loginAction = async ({ request }) => {
 
 
 const logupAction = async ({request, params}) => {
-   const userData = await request.formData();
+   const userData = await request.formData()
    const body = {
       name: userData.get('name'),
       email: userData.get('email'),
@@ -46,7 +46,35 @@ const logupAction = async ({request, params}) => {
 
    const json = await response.json()
    return json
+}
+
+const newTaskAction = async ({request, params}) => {
+   const formData = await request.formData()
+   const body = {
+      title: formData.get('title'),
+      description: formData.get('description')
+   }
+   const token = sessionStorage.getItem('token')
+
+   const response = await fetch('/api/newTask', {
+      method: 'post',
+      headers: {
+         'Content-Type': 'application/json',
+         'Accept': 'application/json',
+         'Authorization': `Bearer ${token}`,
+      },
+      body: JSON.stringify(body)
+   })
+
+   const json = await response.json()
+   console.log(response, json);
+
+   if (response.status == 200) {
+      document.querySelector('#btn_modal').click()
+   }
+   
+   return json
 
 }
 
-export {logupAction, loginAction}
+export { logupAction, loginAction, newTaskAction }
