@@ -3,7 +3,7 @@ import { Form } from "react-router-dom";
 const TaskForm = ({errors, task}) => {   
    return <>
       <Form method="POST">
-      <input type="text" name="id" value={task[0].id} hidden/>
+      <input type="text" name="id" value={task && task[0].id} hidden/>
          <div className="mb-3 text-start">
             <label htmlFor="title" className="form-label">Título</label>
             <input type="text" name="title" id="title" className="form-control" defaultValue={task && task[0].title} />

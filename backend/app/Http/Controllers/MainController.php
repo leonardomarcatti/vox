@@ -40,4 +40,10 @@ class MainController extends Controller
         $task = DB::table('tasks')->where('id', $r->id)->update(['title' => $r->title, 'description' => $r->description,]);
         return \response()->json($task);
     }
+
+    public function deleteTask(string|int $id) : JsonResponse
+    {
+        $task = DB::table('tasks')->where('id', $id)->delete();
+        return \response()->json($task);
+    }
 }

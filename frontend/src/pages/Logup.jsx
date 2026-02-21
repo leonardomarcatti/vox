@@ -35,7 +35,7 @@ const Logup = () => {
                <button type="submit" className='btn btn-primary mx-2'>Cadastrar <i className="fa-solid fa-user-plus"></i></button>
                <button type="reset" className='btn btn-warning mx-2'>Limpar <i className="fa-solid fa-x"></i></button>
             </span>
-            <small>Já é cadastrado? Clique <Link to='/login'>aqui</Link></small>
+            <small>Já é cadastrado? Clique <Link to='/'>aqui</Link></small>
          </div>
       </Form>
    </div> 

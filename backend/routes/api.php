@@ -10,6 +10,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
         Route::post('/newTask', 'newTask')->name('newTask');
         Route::get('/getTask/{id}', 'getTask')->name('getTask');
         Route::post('/editTask', 'editTask')->name('editTask');
+        Route::delete('/deleteTask/{id}', 'deleteTask')->name('deleteTask');
     });
 });
 

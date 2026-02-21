@@ -57,7 +57,7 @@ const newTaskAction = async ({request, params}) => {
    const token = sessionStorage.getItem('token')
 
    const response = await fetch('/api/newTask', {
-      method: 'post',
+      method: 'detete',
       headers: {
          'Content-Type': 'application/json',
          'Accept': 'application/json',
@@ -70,7 +70,7 @@ const newTaskAction = async ({request, params}) => {
    console.log(response, json);
 
    if (response.status == 200) {
-      document.querySelector('#btn_modal').click()
+      document.querySelector('#btn_delete_modal').click()
    }
    
    return json
@@ -105,4 +105,27 @@ const editTaskAction = async ({ request, params }) => {
    return json
 }
 
-export { logupAction, loginAction, newTaskAction, editTaskAction }
+const deleteTaskAction = async ({ request, params }) => {
+   const formData = await request.formData()
+   const body = {
+      id: formData.get('id'),
+   }
+   const token = sessionStorage.getItem('token')
+
+   const response = await fetch(`/api/deleteTask/${params.id}`, {
+      method: 'delete',
+      headers: {
+         'Content-Type': 'application/json',
+         'Accept': 'application/json',
+         'Authorization': `Bearer ${token}`,
+      },
+      body: JSON.stringify(body)
+   })
+
+   const json = await response.json()
+   console.log(json);
+
+   return json
+}
+
+export { logupAction, loginAction, newTaskAction, editTaskAction, deleteTaskAction }
