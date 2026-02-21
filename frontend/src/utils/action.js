@@ -74,7 +74,35 @@ const newTaskAction = async ({request, params}) => {
    }
    
    return json
-
 }
 
-export { logupAction, loginAction, newTaskAction }
+const editTaskAction = async ({ request, params }) => {
+   const formData = await request.formData()
+   const body = {
+      title: formData.get('title'),
+      description: formData.get('description'),
+      id: formData.get('id'),
+   }
+   const token = sessionStorage.getItem('token')
+
+   const response = await fetch(`/api/editTask`, {
+      method: 'post',
+      headers: {
+         'Content-Type': 'application/json',
+         'Accept': 'application/json',
+         'Authorization': `Bearer ${token}`,
+      },
+      body: JSON.stringify(body)
+   })
+
+   const json = await response.json()
+
+   if (response.status == 200) {
+      document.querySelector('#btn_modal').click()
+   }
+   console.log(json);
+   
+   return json
+}
+
+export { logupAction, loginAction, newTaskAction, editTaskAction }

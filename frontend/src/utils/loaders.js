@@ -15,14 +15,13 @@ const checkAuthorization = async () => {
          'Authorization': `Bearer ${token}`,
       },
    })
-
-   
    
    if (response.status === 401) {
       throw redirect("/");
    }
+   const json = await response.json() 
 
-   return response.json()
+   return json
 }
 
 const logout = () => {
@@ -30,5 +29,24 @@ const logout = () => {
    return redirect("/");
 }
 
+const getTask = async ({params}) => {
+   const token = sessionStorage.getItem('token')
+   const response = await fetch(`/api/getTask/${params.id}`, {
+      method: 'get',
+      headers: {
+         'Content-Type': 'application/json',
+         'Accept': 'application/json',
+         'Authorization': `Bearer ${token}`,
+      },
+   })
 
-export { checkAuthorization, logout }
+   if (!response.ok) {
+      throw redirect("/home");
+   }
+
+   const json = await response.json()
+   return json
+}
+
+
+export { checkAuthorization, logout, getTask }

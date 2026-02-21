@@ -1,18 +1,20 @@
 import {createBrowserRouter} from 'react-router-dom'
 import Home from '../pages/Home'
 import Layout from '../layout/Layout'
-import Logup from '../components/Logup'
-import Login from '../components/Login'
+import Logup from '../pages/Logup'
+import Login from '../pages/Login'
 import NewTask from '../pages/NewTask'
-import { checkAuthorization, logout } from '../utils/loaders'
-import { loginAction, logupAction, newTaskAction } from '../utils/action'
+import { checkAuthorization, logout, getTask } from '../utils/loaders'
+import { loginAction, logupAction, newTaskAction, editTaskAction } from '../utils/action'
 import Error from '../pages/Error'
+import EditTask from '../pages/EditTask'
 
 const routes = createBrowserRouter([
    {
       path: '/home', element: <Layout />, shouldRevalidate: () => true, id:'home', loader: checkAuthorization, children: [
       {index: true, element: <Home/>},
       {path: 'newTask', element: <NewTask/>, action: newTaskAction},
+      { path: 'editTask/:id', element: <EditTask />, loader: getTask, action: editTaskAction },
    ]},
    {path: '/', errorElement: <Error /> ,children: [
       { index: true, element: <Login />, action: loginAction },

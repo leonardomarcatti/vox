@@ -8,6 +8,8 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::controller(MainController::class)->group(function(){
         Route::get('/home', 'home')->name('home');
         Route::post('/newTask', 'newTask')->name('newTask');
+        Route::get('/getTask/{id}', 'getTask')->name('getTask');
+        Route::post('/editTask', 'editTask')->name('editTask');
     });
 });
 
