@@ -1,25 +1,15 @@
 import { useDraggable } from "@dnd-kit/react";
 
 const Task = ({ title, description, taskID }) => {
-   const {
-      ref,
-      listeners,
-      attributes,
-      transform,
-      isDragging
-   } = useDraggable({
-      id: String(taskID), // ⭐ sempre string
+   const { ref, listeners, attributes, transform } = useDraggable({
+      id: String(taskID),
    });
 
-   const style = {
-      transform: transform
-         ? `translate(${transform.x}px, ${transform.y}px)`
-         : undefined,
-
-      // 👇 segredo do efeito profissional
-      opacity: isDragging ? 0.3 : 1,
-      cursor: "grab",
-   };
+   const style = transform
+      ? {
+         transform: `translate(${transform.x}px, ${transform.y}px)`,
+      }
+      : undefined;
 
    return (
       <div

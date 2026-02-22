@@ -1,30 +1,36 @@
-import Task from "./Task"
-import { Link } from "react-router-dom"
-import { useDroppable } from "@dnd-kit/react"
+import TaskItem from "./TaskItem";
+import { Link } from "react-router-dom";
+import { useDroppable } from "@dnd-kit/react";
 
+const StatusContainer = ({ style, title, status, tasks, newTask }) => {
+   const { ref } = useDroppable({ id: String(status) });
 
-const StatusContainer = ({style, title, status, tasks, newTask}) => {
-   const {ref} = useDroppable({id: String(status)})
+   return (
+      <div className={`col ${style}`} ref={ref}>
+         <h2>{title}</h2>
 
-   return <div className={`col ${style}`} ref={ref}>         
-      <h2>{title}</h2>
-      {
-         newTask && <Link to='newTask'><button type="button" className="btn btn-sm btn-primary">Nova Tarefa</button></Link>
-      }
-      {
-         tasks
-            .filter(task => String(task.id_status) === String(status))
-            .map(task => (
-               <Task
-                  key={task.id}
-                  title={task.title}
-                  description={task.description}
-                  taskID={task.id}
-               />
-            ))
-      }
-   </div>
+         {newTask && (
+            <Link to="newTask">
+               <button type="button" className="btn btn-sm btn-primary">
+                  Nova Tarefa
+               </button>
+            </Link>
+         )}
 
-}
+         {tasks.map((task) => {
+            if (String(task.id_status) === String(status)) {
+               return (
+                  <TaskItem
+                     key={task.id}
+                     title={task.title}
+                     description={task.description}
+                     taskID={task.id}
+                  />
+               );
+            }
+         })}
+      </div>
+   );
+};
 
-export default StatusContainer
+export default StatusContainer;

@@ -1,18 +1,29 @@
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useActionData } from "react-router-dom";
 import TaskForm from "../components/TaskForm";
 import Modal from "../components/Modal";
 
 const EditTask = () => {
-   const {task} = useLoaderData()   
-   const errors = task?.errors || {}
-   return <div className="container">
-      <Link to='..'>Voltar</Link>
-      <div className="col-6 offset-3">
-         <h1>Editar Tarefa</h1>
-         <TaskForm task={task} errors={errors}/>
-         <Modal title='Sucesso' txt='Tarefa alterada com sucesso!'/>
-      </div>
-   </div>
-}
+   const { task } = useLoaderData(); 
+   const data = useActionData();
+   const errors = data?.errors || {}; 
+   const success = data?.success || false;
 
-export default EditTask
+   return (
+      <div className="container">
+         <Link to="..">Voltar</Link>
+         <div className="col-6 offset-3">
+            <h1>Editar Tarefa</h1>
+
+            <TaskForm task={task} errors={errors} />
+
+            <Modal
+               title="Sucesso"
+               txt="Tarefa alterada com sucesso!"
+               show={success}
+            />
+         </div>
+      </div>
+   );
+};
+
+export default EditTask;

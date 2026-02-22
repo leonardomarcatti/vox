@@ -26,7 +26,7 @@ class MainController extends Controller
             'id_user' => Auth::user()->id,
         ]);
 
-        return \response()->json($result);
+        return \response()->json(Auth::user()->id);
     }
 
     public function getTask(int|string $id)

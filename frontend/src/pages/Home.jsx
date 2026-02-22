@@ -1,6 +1,6 @@
 import { useState } from "react";
 import StatusContainer from "../components/StatusContainer";
-import TaskPreview from "../components/TaskPreview";
+import Task from "../components/Task";
 import { useRouteLoaderData, useRevalidator } from "react-router-dom";
 import { handleDragEnd } from "../utils/dragDrop";
 import { DragDropProvider, DragOverlay } from "@dnd-kit/react";
@@ -58,7 +58,7 @@ const Home = () => {
          {/* 👇 Overlay SOMENTE visual */}
          <DragOverlay>
             {activeTask ? (
-               <TaskPreview
+               <Task
                   title={activeTask.title}
                   description={activeTask.description}
                />

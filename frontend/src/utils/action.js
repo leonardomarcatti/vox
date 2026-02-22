@@ -48,62 +48,62 @@ const logupAction = async ({request, params}) => {
    return json
 }
 
-const newTaskAction = async ({request, params}) => {
-   const formData = await request.formData()
+const newTaskAction = async ({ request }) => {
+   const formData = await request.formData();
    const body = {
-      title: formData.get('title'),
-      description: formData.get('description')
-   }
-   const token = sessionStorage.getItem('token')
+      title: formData.get("title"),
+      description: formData.get("description"),
+   };
 
-   const response = await fetch('/api/newTask', {
-      method: 'detete',
+   const token = sessionStorage.getItem("token");
+
+   const response = await fetch("/api/newTask", {
+      method: "POST", // corrigi aqui
       headers: {
-         'Content-Type': 'application/json',
-         'Accept': 'application/json',
-         'Authorization': `Bearer ${token}`,
+         "Content-Type": "application/json",
+         Accept: "application/json",
+         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify(body)
-   })
+      body: JSON.stringify(body),
+   });
 
-   const json = await response.json()
-   console.log(response, json);
-
-   if (response.status == 200) {
-      document.querySelector('#btn_delete_modal').click()
+   if (!response.ok) {
+      const json = await response.json();
+      return { success: false, errors: json.errors || {} };
    }
-   
-   return json
-}
+
+   // se deu certo
+   return { success: true };
+};
 
 const editTaskAction = async ({ request, params }) => {
-   const formData = await request.formData()
+   const formData = await request.formData();
    const body = {
-      title: formData.get('title'),
-      description: formData.get('description'),
-      id: formData.get('id'),
-   }
-   const token = sessionStorage.getItem('token')
+      id: formData.get("id"),
+      title: formData.get("title"),
+      description: formData.get("description"),
+   };
 
-   const response = await fetch(`/api/editTask`, {
-      method: 'post',
+   const token = sessionStorage.getItem("token");
+
+   const response = await fetch("/api/editTask", {
+      method: "POST",
       headers: {
-         'Content-Type': 'application/json',
-         'Accept': 'application/json',
-         'Authorization': `Bearer ${token}`,
+         "Content-Type": "application/json",
+         Accept: "application/json",
+         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify(body)
-   })
+      body: JSON.stringify(body),
+   });
 
-   const json = await response.json()
+   const json = await response.json();
 
-   if (response.status == 200) {
-      document.querySelector('#btn_modal').click()
+   if (!response.ok) {
+      return { success: false, errors: json.errors || {} };
    }
-   console.log(json);
-   
-   return json
-}
+   return { success: true };
+};
+
 
 const deleteTaskAction = async ({ request, params }) => {
    const formData = await request.formData()
@@ -123,7 +123,6 @@ const deleteTaskAction = async ({ request, params }) => {
    })
 
    const json = await response.json()
-   console.log(json);
 
    return json
 }
