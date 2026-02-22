@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom"
+import {useDraggable} from '@dnd-kit/react'
 
 const Task = ({title, description, taskID}) => {
-   return <div className="p-3 my-3 border-2 border border-dark-subtle rounded bg-secondary-subtle">
+   const {ref} = useDraggable({id: String(taskID)})
+   
+   return <div className="p-3 my-3 border-2 border border-dark-subtle rounded bg-secondary-subtle" ref={ref}>
       <span className="position-relative" >
          <Link to={`editTask/${taskID}`}>
             <i className="fa-solid fa-pencil text-success position-absolute  top-1 end-0 mx-4"></i>
