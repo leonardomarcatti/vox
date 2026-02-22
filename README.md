@@ -126,7 +126,6 @@ vox/<br/>
 <p>✔ Atualização automática de dados</p>
 <p>✔ Modais Bootstrap de feedback</p>
 <p>✔ Arquitetura desacoplada</p>
-<p>🧩 Decisões Técnicas Interessantes</p>
 <p>❌ Sem Redux — uso do React Router Data Layer</p>
 <p>✅ Revalidação automática após mutations</p>
 <p>✅ Backend stateless via token</p>
