@@ -32,7 +32,7 @@ MySQL<br/>
 
 <h2>🐳Containers</h2>
 
-<b>|  Serviço  |    Stack     |  Porta  |</b> <br/>
+<b>|  Serviço  |    Stack     |  Porta  |</b><br/>
 | Frontend  | React + Vite | 3000    | <br/>
 | Backend   | Laravel API  | 3001    | <br/>
 | Database  | MySQL        | 3305    | <br/>
@@ -82,10 +82,10 @@ MySQL<br/>
 </ol>
 
 <h2>Por que dnd-kit?</h2>
-✅ Performance superior
-✅ Sem dependência da API HTML5 drag
-✅ Total controle via React
-✅ UX fluida e previsível
+✅ Performance superior<br/>
+✅ Sem dependência da API HTML5 drag<br/>
+✅ Total controle via React<br/>
+✅ UX fluida e previsível<br/>
 
 <h2>📁 Estrutura</h2>
 vox/<br/>
@@ -106,74 +106,33 @@ vox/<br/>
    <li>Clone o projeto => git clone https://github.com/leonardomarcatti/vox.git</li>
    <li>Entre na pasta do projeto e execute o comando docker compose up --build -d</li>
    <li>Execuções futuras: docker compose up -d</li>
-</ul>
+</ol>
 
 <h2>🌐 Endpoints</h2>
 <p>Serviço Frontend	http://ip:3000</p>
 <p>Backend	http://ip:3001</p>
 <p>MySQL	ip:3305</p>
 
-🔄 Integração Frontend ↔ Backend
+<h2>🔄 Integração Frontend ↔ Backend</h2>
+<h3>Durante o desenvolvimento:</h3>
+<p>fetch('/api/...')</p>
+<p>O Vite proxy redireciona automaticamente para o container Laravel.</p>
 
-Durante o desenvolvimento:
+<h2>✅ Funcionalidades</h2>
+<p>✔ Autenticação</p>
+<p>✔ CRUD completo de tarefas</p>
+<p>✔ Kanban Board</p>
+<p>✔ Drag & Drop entre status</p>
+<p>✔ Atualização automática de dados</p>
+<p>✔ Modais Bootstrap de feedback</p>
+<p>✔ Arquitetura desacoplada</p>
+<p>🧩 Decisões Técnicas Interessantes</p>
+<p>❌ Sem Redux — uso do React Router Data Layer</p>
+<p>✅ Revalidação automática após mutations</p>
+<p>✅ Backend stateless via token</p>
+<p>✅ Containers independentes</p>
+<p>✅ UI sincronizada com backend</p>
 
-fetch('/api/...')
 
-O Vite proxy redireciona automaticamente para o container Laravel.
-
-✅ Funcionalidades
-
-✔ Autenticação
-
-✔ CRUD completo de tarefas
-
-✔ Kanban Board
-
-✔ Drag & Drop entre status
-
-✔ Atualização automática de dados
-
-✔ Modais Bootstrap de feedback
-
-✔ Arquitetura desacoplada
-
-🧩 Decisões Técnicas Interessantes
-
-❌ Sem Redux — uso do React Router Data Layer
-
-✅ Revalidação automática após mutations
-
-✅ Backend stateless via token
-
-✅ Containers independentes
-
-✅ UI sincronizada com backend
-
-🚧 Roadmap
-
- Boards múltiplos
-
- Ordenação dentro da coluna
-
- WebSockets (tempo real)
-
- Permissões por usuário
-
- Dark mode
-
-👨‍💻 Autor
-
-Leonardo Marcatti
-🔗 https://www.linkedin.com/in/leonardomarcattidasilvalms/
-
-⭐ Sobre o Projeto
-
-Este projeto faz parte do meu estudo contínuo em:
-
-Arquitetura moderna web
-
-Clean Code
-
-SOLID aplicado ao backend
-
-Aplicações React escaláveis
+<h2>👨‍💻 Autor</h2>
+<p>Leonardo Marcatti => 🔗 https://www.linkedin.com/in/leonardomarcattidasilvalms/</p>
