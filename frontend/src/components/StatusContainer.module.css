@@ -1,0 +1,9 @@
+.statusContainer {
+   display: flex;
+   flex-direction: column;
+
+   height: 100%;     /* ocupa o espaço do grid/layout */
+   min-height: 0;    /* MUITO IMPORTANTE (bug do flex/grid) */
+
+   overflow-y: auto; /* cria barra de rolagem */
+}

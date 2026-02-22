@@ -12,18 +12,22 @@ import DeleteTask from '../pages/DeleteTask'
 
 const routes = createBrowserRouter([
    {
-      path: '/home', element: <Layout />, shouldRevalidate: () => true, id:'home', loader: checkAuthorization, children: [
-      {index: true, element: <Home/>},
-      {path: 'newTask', element: <NewTask/>, action: newTaskAction},
-      { path: 'editTask/:id', element: <EditTask />, loader: getTask, action: editTaskAction },
-         { path: 'deleteTask/:id', element: <DeleteTask />, loader: getTask, action: deleteTaskAction },
-   ]},
-   {path: '/', errorElement: <Error /> ,children: [
-      { index: true, element: <Login />, action: loginAction },
-      {path: 'logup', element: <Logup />, action: logupAction},
-      {path: 'logout', loader: logout},
-   ]},
-   {path: '*', element: <Error />}
-])
+      path: '/',
+      errorElement: <Error />,
+      children: [
+         { index: true, element: <Login />, action: loginAction },
+         { path: 'logup', element: <Logup />, action: logupAction },
+         { path: 'logout', loader: logout },
+         {path: 'home', element: <Layout />, loader: checkAuthorization, shouldRevalidate: () => true, id: 'home', children: [
+               { index: true, element: <Home /> },
+               { path: 'newTask', element: <NewTask />, action: newTaskAction },
+               { path: 'editTask/:id', element: <EditTask />, loader: getTask, action: editTaskAction },
+               { path: 'deleteTask/:id', element: <DeleteTask />, loader: getTask, action: deleteTaskAction },
+            ]
+         }
+      ]
+   },
+   { path: '*', element: <Error /> }
+]);
 
 export default routes

@@ -2,6 +2,7 @@ import TaskItem from "./TaskItem";
 import { Link } from "react-router-dom";
 import { useDroppable } from "@dnd-kit/react";
 
+
 const StatusContainer = ({ style, title, status, tasks, newTask }) => {
    const { ref } = useDroppable({ id: String(status) });
 

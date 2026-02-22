@@ -1,5 +1,5 @@
 const Footer = () => {
-   return <footer>
+   return <footer className="text-center">
       <small>Vox Technologies</small>
    </footer>
 }

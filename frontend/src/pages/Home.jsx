@@ -10,8 +10,6 @@ const Home = () => {
    const { revalidate } = useRevalidator();
 
    const [activeId, setActiveId] = useState(null);
-
-   // task atualmente sendo arrastada
    const activeTask = data?.tasks?.find(
       (task) => String(task.id) === String(activeId)
    );
@@ -27,9 +25,9 @@ const Home = () => {
             setActiveId(null);
          }}
       >
-         <h1>Home Page</h1>
+         <h1 className="text-center">Home Page</h1>
 
-         <div className="container">
+         <div className="container-fluid">
             <div className="row">
                <StatusContainer
                   style="bg-danger-subtle"
