@@ -1,118 +1,179 @@
-# 📌 Vox — Trello
+<h1>🚀 Vox — Kanban Board (Trello Clone)</h1>
+<p>Aplicação full-stack inspirada no Trello, construída para estudar arquitetura moderna, containers Docker e aplicações React orientadas a dados.O Vox é um sistema de gerenciamento de tarefas estilo Kanban, onde usuários podem criar, editar, excluir e arrastar tarefas entre colunas em tempo real, simulando fluxos reais de produtividade.</p>
 
-Vox é uma aplicação web inspirada no **Trello**, criada com o objetivo de estudar arquitetura moderna baseada em containers e separação clara entre frontend, backend e banco de dados.
-O projeto simula um sistema de gerenciamento de tarefas em formato **Kanban**, permitindo organizar atividades em quadros, listas e cartões.
+<h2>✨ Preview</h2>
+<p>Login</p>
+<img width="600" src="https://github.com/user-attachments/assets/9f57e781-4526-4a0e-b19c-2a8b818e18ed"/>
+<p>Cadastro</p>
+<img width="600" src="https://github.com/user-attachments/assets/38919455-67d4-4d73-842c-acd3c5630be3"/>
+<p>Kanban + Drag & Drop</p>
+<img width="600" src="https://github.com/user-attachments/assets/8bb4af14-451b-4541-b5dc-7456bf4b48d0"/>
 
-
-## 💻 Screenshots
-
-Login<br/>
-<img width="500" height="300" alt="{4A4B1442-2F82-4E4F-B4F8-ACF9313EB9C7}" src="https://github.com/user-attachments/assets/9f57e781-4526-4a0e-b19c-2a8b818e18ed" /><br/>
-Logup<br/>
-<img width="500" height="300" alt="{4A746814-8A62-4EFD-8DF1-CA245FF7304A}" src="https://github.com/user-attachments/assets/38919455-67d4-4d73-842c-acd3c5630be3" /><br/>
-Home<br/>
-<img width="500" height="300" alt="{AB34740E-3120-49C2-BB0D-48B3B36EBE10}" src="https://github.com/user-attachments/assets/8bb4af14-451b-4541-b5dc-7456bf4b48d0" /><br/>
-
-
-
-
-## 🧱 Arquitetura
-
-A aplicação é dividida em três containers independentes:
-
-| Serviço        | Tecnologia          | Porta Externa |
-| -------------- | ------------------- | ------------- |
-| Frontend       | React + Vite + pnpm | 3000          |
-| Backend        | Laravel API         | 3001          |
-| Banco de Dados | MySQL               | 3305          |
-
-### Fluxo de comunicação
-
-Browser<br/>
+<h2>🧠 Objetivo do Projeto</h2>
+<p>Este projeto foi desenvolvido para praticar conceitos utilizados em aplicações profissionais:</p>
+<ul>
+   <li>Separação real Frontend / Backend / Database</li>
+   <li>Arquitetura baseada em containers</li>
+   <li>React Router Data API</li>
+   <li>Comunicação segura via API REST</li>
+   <li>Manipulação avançada de estado sem Redux</li>
+   <li>Drag & Drop moderno com alta performance</li>
+</ul>
+<h2>🏗️ Arquitetura</h2>
+Browser <br/>
    ↓<br/>
 React (Vite Dev Server)<br/>
-   ↓ <br/>
-proxy interno<br/>
+   ↓<br/>
+Proxy interno<br/>
    ↓<br/>
 Laravel API<br/>
    ↓<br/>
 MySQL<br/>
 
-## 🛠️ Tecnologias Utilizadas
+<h2>🐳Containers</h2>
 
-### Frontend
-
-* React
-* React Router
-* Vite
-* pnpm
-* Fetch API
-
-### Backend
-
-* Laravel 12 (API REST)
-* PHP 8.4
-* Eloquent ORM
-
-### Banco de Dados
-
-* MySQL
-
-### Infraestrutura
-
-* Docker
-* Docker Compose
+<b>|  Serviço  |    Stack     |  Porta  |</b> <br/>
+| Frontend  | React + Vite | 3000    | <br/>
+| Backend   | Laravel API  | 3001    | <br/>
+| Database  | MySQL        | 3305    | <br/>
 
 
-## 📂 Estrutura do Projeto
+<h2>🧰 Stack Tecnológica</h2>
+<h3>🎨 Frontend</h3>
+<ul>
+   <li>React</li>
+   <li>React Router (Loader + Action Pattern)</li>
+   <li>Vite</li>
+   <li>pnpm</li>
+   <li>Bootstrap</li>
+   <li>dnd-kit (Drag & Drop engine)</li>
+</ul>
 
-vox/<br />
-├── frontend/   # Aplicação React<br />
-├── backend/    # API Laravel<br />
-├── database/   # Scripts de inicialização<br />
-└── docker-compose.yml<br />
+<h3>⚙️ Backend</h3>
+<ul>
+   <li>Laravel 12</li>
+   <li>PHP 8.4</li>
+   <li>REST API</li>
+   <li>Token Authentication</li>
+   <li>Eloquent ORM</li>
+</ul>
 
+<h3>🗄️ Database</h3>
+<ul>
+   <li>MySQL</li>
+</ul>
 
-## ⚙️ Como Executar o Projeto
+<h2>🐳 DevOps</h2>
+<ul>
+   <li>Docker</li>
+   <li>Docker Compose</li>
+</ul>
+<h2>🎯 Drag & Drop (dnd-kit)</h2>
+<p>O Vox utiliza dnd-kit, uma biblioteca moderna baseada em sensores e eventos React.</p>
 
-### 1️⃣ Clonar o repositório
+<h3>Fluxo da movimentação</h3>
+<ol>
+   <li>Usuário arrasta uma tarefa</li>
+   <li>DragOverlay cria preview visual</li>
+   <li>onDragEnd identifica origem e destino</li>
+   <li>API Laravel recebe atualização de status</li>
+   <li>React Router executa revalidate()</li>
+   <li>UI sincroniza automaticamente</li>
+</ol>
 
-git clone https://github.com/leonardomarcatti/vox.git<br />
-cd vox
+<h2>Por que dnd-kit?</h2>
+✅ Performance superior
+✅ Sem dependência da API HTML5 drag
+✅ Total controle via React
+✅ UX fluida e previsível
 
+<h2>📁 Estrutura</h2>
+vox/<br/>
+├── frontend/<br/>
+│   ├── components/<br/>
+│   ├── pages/<br/>
+│   ├── utils/<br/>
+│   └── routes.jsx<br/>
+│<br/>
+├── backend/<br/>
+│   └── Laravel API<br/>
+│<br/>
+├── database/<br/>
+└── docker-compose.yml<br/>
 
-### 2️⃣ Subir os containers
-docker compose up --build<br />
-Da próxima vez que subuir a aplicação substitua --build por -d
+<h2>⚙️ Rodando o Projeto</h2>
+<ol>
+   <li>Clone o projeto => git clone https://github.com/leonardomarcatti/vox.git</li>
+   <li>Entre na pasta do projeto e execute o comando docker compose up --build -d</li>
+   <li>Execuções futuras: docker compose up -d</li>
+</ul>
 
-## 🌐 Acessos
+<h2>🌐 Endpoints</h2>
+<p>Serviço Frontend	http://ip:3000</p>
+<p>Backend	http://ip:3001</p>
+<p>MySQL	ip:3305</p>
 
-Após iniciar:
+🔄 Integração Frontend ↔ Backend
 
-* Frontend → [http://ip:3000](http://ip:3000)
-* Backend API → [http://ip:3001](http://ip:3001)
-* MySQL → ip:3305
+Durante o desenvolvimento:
 
+fetch('/api/...')
 
-## 🔌 Integração Frontend ↔ Backend
+O Vite proxy redireciona automaticamente para o container Laravel.
 
-O projeto utiliza proxy do Vite durante o desenvolvimento.<br />
-No frontend, as requisições são feitas usando: fetch('/api/...')<br />
-O Vite redireciona automaticamente para o container do Laravel.
+✅ Funcionalidades
 
-## 📋 Funcionalidades Planejadas
+✔ Autenticação
 
-* [ ] Criação de quadros (boards)
-* [ ] Listas estilo Kanban
-* [ ] Cartões de tarefas
-* [ ] Drag & Drop
-* [ ] API REST completa
-* [ ] Autenticação de usuários
+✔ CRUD completo de tarefas
 
+✔ Kanban Board
 
-## 👨‍💻 Autor
-Desenvolvido por <a href='https://www.linkedin.com/in/leonardomarcattidasilvalms/' target='_blank'>Leonardo Marcatti</a>.
+✔ Drag & Drop entre status
 
+✔ Atualização automática de dados
 
-## 📄 Licença
-Projeto criado para fins profissionais.
+✔ Modais Bootstrap de feedback
+
+✔ Arquitetura desacoplada
+
+🧩 Decisões Técnicas Interessantes
+
+❌ Sem Redux — uso do React Router Data Layer
+
+✅ Revalidação automática após mutations
+
+✅ Backend stateless via token
+
+✅ Containers independentes
+
+✅ UI sincronizada com backend
+
+🚧 Roadmap
+
+ Boards múltiplos
+
+ Ordenação dentro da coluna
+
+ WebSockets (tempo real)
+
+ Permissões por usuário
+
+ Dark mode
+
+👨‍💻 Autor
+
+Leonardo Marcatti
+🔗 https://www.linkedin.com/in/leonardomarcattidasilvalms/
+
+⭐ Sobre o Projeto
+
+Este projeto faz parte do meu estudo contínuo em:
+
+Arquitetura moderna web
+
+Clean Code
+
+SOLID aplicado ao backend
+
+Aplicações React escaláveis
