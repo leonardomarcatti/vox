@@ -9,6 +9,23 @@
 <p>Kanban + Drag & Drop</p>
 <img width="600" src="https://github.com/user-attachments/assets/8bb4af14-451b-4541-b5dc-7456bf4b48d0"/>
 
+<h2>⚙️ Rodando o Projeto</h2>
+<ol>
+   <li>Clone o projeto => git clone https://github.com/leonardomarcatti/vox.git</li>
+   <li>Renomeie o arquivo .env.example para .env e lá faça algumas alterações:</li>
+   <ol>
+      <li>APP_URL=http://localhost:3000</li>
+      <li>DB_CONNECTION=mysql</li>
+      <li>DB_HOST=vox_db</li>
+      <li>DB_PORT=3306</li>
+      <li>DB_DATABASE=vox</li>
+      <li>DB_USERNAME=vox</li>
+      <li>DB_PASSWORD=vox</li>
+   </ol>
+   <li>Entre na pasta do projeto e execute o comando docker compose up --build -d</li>
+   <li>Execuções futuras: docker compose up -d</li>
+</ol>
+
 <h2>🧠 Objetivo do Projeto</h2>
 <p>Este projeto foi desenvolvido para praticar conceitos utilizados em aplicações profissionais:</p>
 <ul>
@@ -100,13 +117,6 @@ vox/<br/>
 │<br/>
 ├── database/<br/>
 └── docker-compose.yml<br/>
-
-<h2>⚙️ Rodando o Projeto</h2>
-<ol>
-   <li>Clone o projeto => git clone https://github.com/leonardomarcatti/vox.git</li>
-   <li>Entre na pasta do projeto e execute o comando docker compose up --build -d</li>
-   <li>Execuções futuras: docker compose up -d</li>
-</ol>
 
 <h2>🌐 Endpoints</h2>
 <p>Serviço Frontend	http://ip:3000</p>
